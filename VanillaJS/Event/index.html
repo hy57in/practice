@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-size: 3rem;
+      }
+      h1 {
+        background: #fff000;
+      }
+      .menu {
+        display: flex;
+        background: green;
+      }
+      .menu-link {
+        margin: 0.1em;
+        padding: 0.3em;
+        text-decoration: none;
+        background: dodgerblue;
+        color: #ffffff;
+        list-style: none;
+      }
+      .menu-active {
+        background: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="main-title">Event</h1>
+    <nav class="menu">
+      <a href="#" class="menu-link" data-menu="1">menu 1</a>
+      <a href="#" class="menu-link" data-menu="2">menu 2</a>
+      <a href="#" class="menu-link" data-menu="3">menu 3</a>
+    </nav>
+    <script>
+      let currentMenu;
+      let menu = document.querySelector(".menu");
+
+      function activate(element) {
+        element.classList.add("menu-active");
+        currentMenu = element;
+      }
+
+      function inactivate() {
+        currentMenu.classList.remove("menu-active");
+      }
+
+      function clickMenuHandeler(e) {
+        if (currentMenu) {
+          inactivate();
+        }
+
+        activate(e.target);
+      }
+      menu.addEventListener("click", clickMenuHandeler);
+    </script>
+  </body>
+</html>

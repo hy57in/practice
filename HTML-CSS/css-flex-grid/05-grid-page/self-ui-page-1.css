@@ -1,0 +1,107 @@
+.header {
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    height: 80px;
+    padding: 0 1rem;
+  }
+  /* header에 jusifu-content: space-between 대신 사용 가능 */
+  .search-form {
+    margin-left: auto;
+    margin-right: 3rem;
+  }
+  .primary {
+    padding: 1rem;
+  }
+  .secondary {
+    padding: 1rem;
+  }
+  .secondary-a {
+    background: white;
+  }
+  .secondary-b {
+    background: #666;
+  }
+  .footer {
+    padding: 1rem;
+    text-align: center;
+    border-top: 1px solid lightgray;
+  }
+  .modal {
+    display: none;
+    top: 80px;
+  }
+  
+  #modal-switch:checked ~ .modal {
+    display: flex;
+  }
+  label[for="modal-switch"] {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 1.3rem;
+    right: 1rem;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    /* background: red; */
+  }
+  label[for="modal-switch"]:before {
+    content: "⚑";
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  #modal-switch:checked ~ label[for="modal-switch"]:before {
+    color: dodgerblue;
+  }
+  #modal-switch,
+  label[for="modal-switch"] span {
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    top: 0;
+  }
+  @media (min-width: 1024px) {
+    .page {
+      display: grid;
+      grid-template-columns: 20% 1fr 20%;
+    }
+    .header {
+      grid-column: 1 / 4;
+      grid-row:  1 / 2;
+    }
+    .menu {
+        grid-column: 1 / 4;
+        grid-row:  2 / 3;
+    }
+    .secondary-a {
+        grid-column: 1 / 2;
+        grid-row:  3 / 4;
+    }
+    .primary {
+        grid-column: 2 / 3;
+        grid-row:  3 / 4;
+    }
+    .secondary-b {
+        grid-column: 3 / 4;
+        grid-row:  3 / 4;
+    }
+    .footer {
+        grid-column: 1 / 4;
+        grid-row:  4 / 5;
+    }
+  }
+  @media (min-width: 1400px) {
+    .primary {
+      grid-template-columns: 300px 1fr 300px;
+    }
+  }
+  
+  @media (max-width: 480px) {
+      .page header {
+          font-size: 0.8rem;
+      }
+  }
